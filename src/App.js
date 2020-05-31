@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useEffect, useSt} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+import MonsterList from './components/monsterList'
 
 function App() {
+  const [monsters, setMonsters] = useState([])
+
+  function getMonsters() {
+    axios.get('http://dnd5eapi.co/api/monsters')
+      .then(res =>{
+        setMonsters(res.data.results)
+      })
+  }
+  useEffect(()=>{
+    getMonsters()
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>This is working!</p>
-        
-      </header>
+
+    <div>
+      <MonsterList monsters={monsters}/>
     </div>
   );
 }
