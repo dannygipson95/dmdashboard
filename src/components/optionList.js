@@ -1,17 +1,17 @@
 import React from 'react'
+import {v4} from 'uuid'
 
-function MonsterList(props){
+function OptionList(props){
     const {monsters} = props
-    
     return(
         <div>
             {monsters.map(monster=>{
                 return(
-                    <p>{monster.name}</p>
+                    <option key={v4()}>{monster.name}</option>
                 )
             })}
         </div>
     )
 }
 
-export default MonsterList
+export default OptionList
