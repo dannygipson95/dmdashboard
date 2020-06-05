@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from 'axios'
+import {v4} from 'uuid'
 import MonsterForm from './components/monsterForm'
 import MonsterCardContainer from './components/monsterCardContainer'
 import Initiative from './components/initiativeContainer'
@@ -9,22 +10,13 @@ import FlexRow from './styledComponents/flexRow'
 
 const initialInputVals = {
   monster: '',
-  mini: '',
-}
-
-const dummyEnemy = {
-  name: 'Aboleth',
-  armor_class: 17,
-  hit_points: 135,
-  mini_name: 'Aboleth',
-  conditions: 'none'
+  mini: ''
 }
 
 function App() {
   const [monsters, setMonsters] = useState([])
   const [monsterList, setMonsterList] = useState([])
   const [formVals, setFormVals] = useState(initialInputVals)
-  const [newUrl, setNewUrl] = useState('')
 
 
   function getMonsters() {
@@ -81,7 +73,7 @@ function App() {
       </div>
       <div className='column'>
       <MonsterForm monsters={monsters} changeHandler={changeHandler} formVals={formVals} onMonsterSubmit={onMonsterSubmit}/>
-      <MonsterCardContainer monsterList={monsterList} monsters={monsters}/>
+      <MonsterCardContainer monsterList={monsterList} formVals={formVals} onChange={changeHandler}/>
       </div>
     </FlexRow>
   );
