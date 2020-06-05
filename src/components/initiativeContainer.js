@@ -53,6 +53,7 @@ function Initiative(){
                     placeholder='name'
                     value={initVals.name}
                     onChange={onInitChange}
+                    autoComplete='off'
                 />
                 <input
                     type='text'
@@ -60,6 +61,7 @@ function Initiative(){
                     placeholder='count'
                     value={initVals.count}
                     onChange={onInitChange}
+                    autoComplete='off'
                 />
                 <button>Add</button>
             </form>

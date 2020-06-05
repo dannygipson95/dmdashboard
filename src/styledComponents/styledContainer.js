@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const StyledContainer = styled.div`
     background: #FCE5CD;
     margin: 0;
+    margin-bottom: 2%;
     border: 5px solid #B08400;
     border-width: 5px 0;
     width: 100%;

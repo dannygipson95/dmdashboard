@@ -23,6 +23,7 @@ function MonsterForm(props){
                 value={formVals.mini}
                 onChange={changeHandler}
                 placeholder='mini-name'
+                autoComplete='off'
                 />
                 <button onClick={onMonsterSubmit}>Add Enemy</button>
             </form>
